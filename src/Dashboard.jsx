@@ -46,7 +46,7 @@ export default function Dashboard() {
       setMenuData(response?.data || {});
     } catch (err) {
       console.error(err);
-      setError("Menu load karvama error aavyo.");
+      setError("Please try again later.");
     } finally {
       setLoading(false);
     }
