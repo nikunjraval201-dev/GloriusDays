@@ -99,43 +99,18 @@
 
 .hero-center {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
-.hero-sub {
-  font-family: 'Lato', sans-serif;
-  font-size: 11px;
-  letter-spacing: 6px;
-  color: #D4A017;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.hero-title-white {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(42px, 8vw, 90px);
-  font-weight: 900;
-  font-style: italic;
-  line-height: 0.9;
-  color: #fff;
-  text-shadow: 0 0 60px #D4A01750;
-}
-
-.hero-title-gold {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(42px, 8vw, 90px);
-  font-weight: 900;
-  line-height: 0.9;
-  color: #D4A017;
-  letter-spacing: -2px;
-}
-
-.hero-restaurant-label {
-  font-family: 'Lato', sans-serif;
-  font-size: 11px;
-  letter-spacing: 8px;
-  color: #f0e6d380;
-  text-transform: uppercase;
-  margin-top: 10px;
+/* ── HERO LOGO (replaces hero text) ── */
+.hero-logo {
+  width: clamp(140px, 22vw, 220px);
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 60px #D4A01750;
+  background: #f5e9c8;
+  padding: 6px;
 }
 
 /* ── STATES ── */
@@ -440,19 +415,8 @@
     padding: 20px 0 12px;
   }
 
-  .hero-sub {
-    font-size: 9px;
-    letter-spacing: 4px;
-  }
-
-  .hero-restaurant-label {
-    font-size: 9px;
-    letter-spacing: 4px;
-  }
-
-  .hero-title-white,
-  .hero-title-gold {
-    font-size: clamp(36px, 14vw, 60px);
+  .hero-logo {
+    width: clamp(100px, 34vw, 160px);
   }
 
   .menu-img,

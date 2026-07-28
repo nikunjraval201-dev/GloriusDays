@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getMenuList } from "./api/DashBoardApi";
+import logo from "./assets/logo.jpeg";
 import "./assets/Dashboard.css";
 
 const CATEGORY_ICONS = {
@@ -70,7 +71,7 @@ export default function Dashboard() {
       {/* Top strip */}
       <div className="top-strip">
         <span className="top-strip-text">
-          ✦ EST. 2022 &nbsp;·&nbsp; OPEN 08AM – 10PM &nbsp;·&nbsp; +123 456 789 ✦
+          ✦ EST. 2022 &nbsp;·&nbsp; OPEN 6:30 PM – 11:30 PM &nbsp;·&nbsp; +123 456 789 ✦
         </span>
       </div>
 
@@ -82,10 +83,7 @@ export default function Dashboard() {
             <div className="hero-line hero-line-gap" />
           </div>
           <div className="hero-center">
-            <div className="hero-sub">The Authentic</div>
-            <div className="hero-title-white">Asian</div>
-            <div className="hero-title-gold">Food</div>
-            <div className="hero-restaurant-label">— Restaurant —</div>
+            <img src={logo} alt="South Delights" className="hero-logo" />
           </div>
           <div className="hero-line-right">
             <div className="hero-line hero-line-reverse" />
@@ -192,7 +190,7 @@ export default function Dashboard() {
         {/* FOOTER */}
         <div className="dashboard-footer">
           <div className="footer-address">📍 Your Address Here</div>
-          <div className="footer-brand">The Grand Asian</div>
+          <div className="footer-brand">South Delights</div>
           <div className="footer-web">www.yourmenu.com</div>
         </div>
       </div>
