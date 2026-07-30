@@ -189,9 +189,7 @@ export default function Dashboard() {
 
         {/* FOOTER */}
         <div className="dashboard-footer">
-          <div className="footer-address">📍 Your Address Here</div>
           <div className="footer-brand">South Delights</div>
-          <div className="footer-web">www.yourmenu.com</div>
         </div>
       </div>
     </div>
