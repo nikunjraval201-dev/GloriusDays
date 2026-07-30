@@ -71,7 +71,7 @@ export default function Dashboard() {
       {/* Top strip */}
       <div className="top-strip">
         <span className="top-strip-text">
-          ✦ EST. 2022 &nbsp;·&nbsp; OPEN 6:30 PM – 11:30 PM &nbsp;·&nbsp; +123 456 789 ✦
+          ✦ OPEN 6:30 PM – 11:30 PM &nbsp;·&nbsp; Ajay Patel 94265 43835 || Jayesh Prajapati 97149 61622 ✦
         </span>
       </div>
 
