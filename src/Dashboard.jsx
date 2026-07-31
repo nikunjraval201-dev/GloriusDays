@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getMenuList } from "./api/DashBoardApi";
 import logo from "./assets/logo.jpeg";
 import "./assets/Dashboard.css";
-
+import socket from "./socket";
 const CATEGORY_ICONS = {
   pizza: "🍕",
   dosa: "🫓",
@@ -41,6 +41,57 @@ export default function Dashboard() {
     getMenu();
   }, []);
 
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("Website Connected:", socket.id);
+    });
+
+    socket.on("menu-updated", (data) => {
+      console.log("Menu Updated:", data);
+      getMenu();
+    });
+
+    return () => {
+      socket.off("menu-updated");
+    };
+  }, []);
+
+  useEffect(() => {
+    socket.on("menu-created", () => {
+      getMenu();
+    });
+
+    socket.on("menu-updated", () => {
+      getMenu();
+    });
+
+    socket.on("menu-deleted", () => {
+      getMenu();
+    });
+
+    socket.on("category-created", () => {
+      getMenu();
+    });
+
+    socket.on("category-updated", () => {
+      getMenu();
+    });
+
+    socket.on("category-deleted", () => {
+      getMenu();
+    });
+
+    return () => {
+      socket.off("menu-created");
+      socket.off("menu-updated");
+      socket.off("menu-deleted");
+
+      socket.off("category-created");
+      socket.off("category-updated");
+      socket.off("category-deleted");
+    };
+  }, []);
+
   const getMenu = async () => {
     try {
       setLoading(true);
@@ -71,7 +122,8 @@ export default function Dashboard() {
       {/* Top strip */}
       <div className="top-strip">
         <span className="top-strip-text">
-          ✦ OPEN 6:30 PM – 11:30 PM &nbsp;·&nbsp; Ajay Patel 94265 43835 || Jayesh Prajapati 97149 61622 ✦
+          ✦ OPEN 6:30 PM – 11:30 PM &nbsp;·&nbsp; Ajay Patel 94265 43835 ||
+          Jayesh Prajapati 97149 61622 ✦
         </span>
       </div>
 
@@ -100,9 +152,7 @@ export default function Dashboard() {
         )}
 
         {/* ERROR STATE */}
-        {error && !loading && (
-          <div className="error-text">{error}</div>
-        )}
+        {error && !loading && <div className="error-text">{error}</div>}
 
         {/* MENU CONTENT */}
         {!loading && !error && (
@@ -171,7 +221,9 @@ export default function Dashboard() {
                             <div className="item-info">
                               <div className="item-name">{item.name}</div>
                               {item.description && (
-                                <div className="item-desc">{item.description}</div>
+                                <div className="item-desc">
+                                  {item.description}
+                                </div>
                               )}
                             </div>
 
